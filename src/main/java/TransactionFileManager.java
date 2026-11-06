@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -73,13 +74,31 @@ public class TransactionFileManager {
                     "Could not read transactions: " + e.getMessage());
         }
 
-        // Return all transactions
-        return transactions;
-                }
-
-                }
-
-
+            // Return all transactions
+             return transactions;
     }
 
 }
+
+            // Save one new transaction to the CSV file
+            public static boolean saveTransaction(Transaction transaction) {
+
+                try (BufferedWriter writer =
+                             new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+
+                    // Convert the transaction into CSV format
+                    writer.write(transaction.toCsvLine());
+
+                    // Move to the next line
+                    writer.newLine();
+
+                    return true;
+
+                } catch (IOException e) {
+                    System.out.println(
+                            "Could not save transaction: " + e.getMessage());
+                    return false;
+                }
+            }
+
+

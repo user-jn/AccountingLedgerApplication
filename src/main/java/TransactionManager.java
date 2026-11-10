@@ -1,26 +1,21 @@
 package com.pluralsight;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.IOException;
-import java.math.BigDecimal;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-public class TransactionFileManager {
+public class TransactionManager {
 
     // Load the CSV into an ArrayList. Each line becomes one Transaction.
-
     // Name of the file where transactions are stored
     private static final String FILE_NAME = "transactions.csv";
+    private static final String HEADER = "date|time|description|vendor|amount";
 
-    // Read all transactions from the CSV file
-    public static ArrayList<Transaction> loadTransactions() {
+    // List of transactions while the program is running
+    private ArrayList<Transaction> transactions = new ArrayList<>();
 
-        // ArrayList stores all transaction objects
-        ArrayList<Transaction> transactions = new ArrayList<>();
+
 
         File file = new File(FILE_NAME);
 

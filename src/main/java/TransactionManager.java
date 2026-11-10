@@ -29,5 +29,25 @@ public class TransactionManager {
                     writer.newLine();
                 }
             }
+            return true;
 
-        }
+        } catch (IOException e) {
+            System.out.println("Could not prepare CSV file: " + e.getMessage());
+            return false;
+
+            // create a transaction, save it, then add it to the list
+            public boolean addTransaction(String description, String vendor, double amount) {
+                Transaction transaction = new Transaction(
+                        LocalDate.now(), LocalTime.now(), description, vendor, amount);
+
+                // Don't add a record in memory if saving failed
+                if (saveTransactionToFile(transaction)) {
+                    transactions.add(transaction);
+                    return true;
+                }
+                return false;
+            }
+
+
+            }
+    }

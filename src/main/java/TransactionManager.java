@@ -1,10 +1,8 @@
-
-
 import java.io.*;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-
 import java.util.Comparator;
 
 public class TransactionManager {
@@ -48,7 +46,7 @@ public class TransactionManager {
     // METHOD 2: ADD TRANSACTION
     // Create a transaction, save it, then add it to our list
     public boolean addTransaction(
-            String description, String vendor, double amount) {
+            String description, String vendor, BigDecimal amount) {
 
         Transaction transaction = new Transaction(
                 LocalDate.now(),
@@ -124,12 +122,9 @@ public class TransactionManager {
                             LocalTime time = LocalTime.parse(parts[1]);
                             String description = parts[2];
                             String vendor = parts[3];
-                            double amount = Double.parseDouble(parts[4]);
+                            BigDecimal amount = new BigDecimal(parts[4]); //updated double with BigDecimal to use compare
 
-                            // ignore invalid numebric values
-                            if (!Double.isFinite(amount)) {
-                                continue;
-                            }
+                            // ignore invalid numeric values
 
                             Transaction transaction = new Transaction(
                                     date, time, description, vendor, amount);
@@ -148,7 +143,7 @@ public class TransactionManager {
             }
         }
         // METHOD 5: RETURN ALL TRANSACTIONS NEWEST FIRST
-        public ArrayList<Transaction> getAllTransaction() {
+        public ArrayList<Transaction> getAllTransactions() {
 
             ArrayList<Transaction> results =
                     new ArrayList<>(transactions);
@@ -161,37 +156,36 @@ public class TransactionManager {
 
             return results;
         }
-        // METHOD 5: RETURN DEPOSITS ONLY
+
+        // METHOD 6: RETURN DEPOSITS ONLY
         public ArrayList<Transaction> getDeposits() {
 
             ArrayList<Transaction> deposits = new ArrayList<>();
 
-            for (Transaction transaction : getAllTransaction()) {
+            for (Transaction transaction : getAllTransactions()) {
 
-                if (transaction.getAmount() > 0) {
+                // Positive amounts are deposits
+                if (transaction.getAmount().compareTo(BigDecimal.ZERO) > 0) {
                     deposits.add(transaction);
                 }
             }
 
-            return deposits;
-
-        }
-
-        // METHOD 7: RETURN PAYMENTS ONLY
-        public ArrayList<Transaction> getPayments() {
+        return deposits;
+    }
+            // METHOD 7: RETURN PAYMENTS ONLY
+            public ArrayList<Transaction> getPayments() {
 
             ArrayList<Transaction> payments = new ArrayList<>();
 
-            for (Transaction transaction : getAllTransaction()) {
+            for (Transaction transaction : getAllTransactions()) {
 
-                if (transaction.getAmount() < 0) {
-                    payments.add(transaction);
-                }
+            // Negative amounts are payments
+            if (transaction.getAmount().compareTo(BigDecimal.ZERO) < 0) {
+                payments.add(transaction);
             }
+        }
             return payments;
-        }
+    }
 
-
-
-        }
+}
 

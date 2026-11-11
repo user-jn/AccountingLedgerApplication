@@ -1,10 +1,11 @@
 
-package com.pluralsight;
 
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+
+import java.util.Comparator;
 
 public class TransactionManager {
 
@@ -130,7 +131,7 @@ public class TransactionManager {
                                 continue;
                             }
 
-                            Transaction transaction = new transaction(
+                            Transaction transaction = new Transaction(
                                     date, time, description, vendor, amount);
 
                             transactions.add(transaction);
@@ -146,11 +147,11 @@ public class TransactionManager {
                 System.out.println("Error reading file: " + e.getMessage());
             }
         }
-        // METHOD 5: RETURN ALL TRANSACTIONS NEWEST First
+        // METHOD 5: RETURN ALL TRANSACTIONS NEWEST FIRST
         public ArrayList<Transaction> getAllTransaction() {
 
             ArrayList<Transaction> results =
-                    new ArrayList<>(transaction);
+                    new ArrayList<>(transactions);
 
             // sort by date, then time, newest first
             results.sort(
@@ -160,8 +161,24 @@ public class TransactionManager {
 
             return results;
         }
+        // METHOD 5: RETURN DEPOSITS ONLY
+        public ArrayList<Transaction> getDeposits() {
+
+            ArrayList<Transaction> deposits = new ArrayList<>();
+
+            for (Transaction transaction : getAllTransaction()) {
+
+                if (transaction.getAmount() > 0) {
+                    deposits.add(transaction);
+                }
+            }
+
+            return deposits;
+
+        }
 
 
 
-    }
-}
+
+        }
+

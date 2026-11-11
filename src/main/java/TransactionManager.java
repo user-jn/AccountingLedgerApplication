@@ -92,5 +92,28 @@ public class TransactionManager {
             return false;
         }
     }
-}
+
+        // METHOD 4- LOAD TRANSACTION FROM CSV
+        public void loadTransactionFromFile() {
+
+            transactions.clear();
+
+            if (!prepareFile()) {
+                return;
+            }
+            try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+
+                String line;
+
+                    // read each line until the end of the file
+                while ((line = reader.readLine()) != null) {
+
+                    // skip header and blank lines
+                    if (line.isBlank() || line.equalsIgnoreCase(HEADER)) {
+                        continue;
+                    }
+
+                }
+
+            }
 

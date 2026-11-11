@@ -177,6 +177,19 @@ public class TransactionManager {
 
         }
 
+        // METHOD 7: RETURN PAYMENTS ONLY
+        public ArrayList<Transaction> getPayments() {
+
+            ArrayList<Transaction> payments = new ArrayList<>();
+
+            for (Transaction transaction : getAllTransaction()) {
+
+                if (transaction.getAmount() < 0) {
+                    payments.add(transaction);
+                }
+            }
+            return payments;
+        }
 
 
 

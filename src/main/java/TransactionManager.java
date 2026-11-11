@@ -1,3 +1,4 @@
+
 package com.pluralsight;
 
 import java.io.*;
@@ -7,47 +8,89 @@ import java.util.ArrayList;
 
 public class TransactionManager {
 
-    // Load the CSV into an ArrayList. Each line becomes one Transaction.
-    // Name of the file where transactions are stored
+    // CSV file name and header
     private static final String FILE_NAME = "transactions.csv";
-    private static final String HEADER = "date|time|description|vendor|amount";
+    private static final String HEADER =
+            "date|time|description|vendor|amount";
 
     // List of transactions while the program is running
     private ArrayList<Transaction> transactions = new ArrayList<>();
 
-    // Prepare the csv before reading or writing
-    // Return false if file cannot be created or opened
+    // METHOD 1: PREPARE CSV FILE
     private boolean prepareFile() {
+
         File file = new File(FILE_NAME);
 
         try {
-            // add the header when the csv file is missing or empty
+
+            // Add the header if the CSV file is missing or empty
             if (!file.exists() || file.length() == 0) {
+
                 try (BufferedWriter writer =
                              new BufferedWriter(new FileWriter(file))) {
+
                     writer.write(HEADER);
                     writer.newLine();
                 }
             }
+
             return true;
 
         } catch (IOException e) {
-            System.out.println("Could not prepare CSV file: " + e.getMessage());
+            System.out.println(
+                    "Could not prepare CSV file: " + e.getMessage());
+
             return false;
-
-            // create a transaction, save it, then add it to the list
-            public boolean addTransaction(String description, String vendor, double amount) {
-                Transaction transaction = new Transaction(
-                        LocalDate.now(), LocalTime.now(), description, vendor, amount);
-
-                // Don't add a record in memory if saving failed
-                if (saveTransactionToFile(transaction)) {
-                    transactions.add(transaction);
-                    return true;
-                }
-                return false;
-            }
-
-
-            }
+        }
     }
+
+    // METHOD 2: ADD TRANSACTION
+    // Create a transaction, save it, then add it to our list
+    public boolean addTransaction(
+            String description, String vendor, double amount) {
+
+        Transaction transaction = new Transaction(
+                LocalDate.now(),
+                LocalTime.now(),
+                description,
+                vendor,
+                amount);
+
+        // Only add to the list after saving successfully
+        if (saveTransactionToFile(transaction)) {
+
+            transactions.add(transaction);
+            return true;
+        }
+
+        return false;
+    }
+
+    // METHOD 3: SAVE TRANSACTION
+    public boolean saveTransactionToFile(Transaction transaction) {
+
+        // Stop if preparing the CSV file fails
+        if (!prepareFile()) {
+            return false;
+        }
+
+        try (BufferedWriter writer =
+                     new BufferedWriter(new FileWriter(FILE_NAME, true))) {
+
+            // Use the overridden toString() method
+            writer.write(transaction.toString());
+
+            // Move to the next line
+            writer.newLine();
+
+            return true;
+
+        } catch (IOException e) {
+            System.out.println(
+                    "Error saving transaction: " + e.getMessage());
+
+            return false;
+        }
+    }
+}
+

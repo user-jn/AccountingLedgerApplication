@@ -105,7 +105,7 @@ public class TransactionManager {
 
                 String line;
 
-                    // read each line until the end of the file
+                // read each line until the end of the file
                 while ((line = reader.readLine()) != null) {
 
                     // skip header and blank lines
@@ -113,7 +113,37 @@ public class TransactionManager {
                         continue;
                     }
 
-                }
+                    // split the line into five parts
+                    String[] parts = line.split("\\|");
 
+                    if (parts.length == 5) {
+
+                        try {
+                            LocalDate date = LocalDate.parse(parts[0]);
+                            LocalTime time = LocalTime.parse(parts[1]);
+                            String description = parts[2];
+                            String vendor = parts[3];
+                            double amount = Double.parseDouble(parts[4]);
+
+                            // ignore invalid numebric values
+                            if (!Double.isFinite(amount)) {
+                                continue;
+                            }
+
+                            Transaction transaction = new transaction(
+                                    date, time, description, vendor, amount);
+
+                            transactions.add(transaction);
+
+                        } catch (Exception e) {
+                            System.out.println("Skipping invalid transaction.");
+
+                        }
+
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Error reading file: " + e.getMessage());
             }
+        }
 

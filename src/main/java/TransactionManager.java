@@ -93,7 +93,7 @@ public class TransactionManager {
         }
     }
 
-        // METHOD 4- LOAD TRANSACTION FROM CSV
+        // METHOD 4: LOAD TRANSACTION FROM CSV
         public void loadTransactionFromFile() {
 
             transactions.clear();
@@ -146,4 +146,22 @@ public class TransactionManager {
                 System.out.println("Error reading file: " + e.getMessage());
             }
         }
+        // METHOD 5: RETURN ALL TRANSACTIONS NEWEST First
+        public ArrayList<Transaction> getAllTransaction() {
 
+            ArrayList<Transaction> results =
+                    new ArrayList<>(transaction);
+
+            // sort by date, then time, newest first
+            results.sort(
+                    Comparator.comparing(Transaction::getDate)
+                            .thenComparing(Transaction::getTime)
+                            .reversed());
+
+            return results;
+        }
+
+
+
+    }
+}

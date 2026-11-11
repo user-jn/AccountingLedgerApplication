@@ -1,11 +1,9 @@
 
-    package com.pluralsight;
-
-
     import java.time.LocalDate;
     import java.time.LocalTime;
     import java.time.format.DateTimeFormatter;
     import java.util.Locale;
+    import java.math.BigDecimal;
 
         public class Transaction {
             // OBJECT HOLDS ONE ROW OF THE LEDGER
@@ -13,10 +11,10 @@
             private LocalTime time;
             private String description;
             private String vendor;
-            private double amount;
+            private BigDecimal amount;
 
             // CONSTRUCTOR
-            public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
+            public Transaction(LocalDate date, LocalTime time, String description, String vendor, BigDecimal amount) {
 
                 this.date = date;
                 this.time = time;
@@ -45,7 +43,7 @@
                 return vendor;
             }
 
-            public double getAmount() {
+            public BigDecimal getAmount() {
                 return amount;
             }
 
@@ -66,7 +64,7 @@
                 this.vendor = vendor;
             }
 
-            public void setAmount(double amount) {
+            public void setAmount(BigDecimal amount) {
                 this.amount = amount;
             }
 

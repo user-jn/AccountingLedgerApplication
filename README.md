@@ -1,4 +1,4 @@
-Accounting Ledger Application
+Accounting Ledger Application 
 
 Project Description
 
@@ -69,7 +69,52 @@ Follow the console prompts to record or view transactions.
 The program creates transactions.csv in its working directory if the file does not already exist.
 
 
-Interesting Code
+Interesting Code — Exception Handling and CSV Validation
+
+
+### Interesting Code #2 — Exception Handling and CSV Validation
+
+Another important part of my project is how I used `try/catch` inside `TransactionManager.java` to handle invalid data when loading transactions from the CSV file.
+
+**My Java Code:**
+
+```java
+try {
+    LocalDate date = LocalDate.parse(parts[0]);
+    LocalTime time = LocalTime.parse(parts[1]);
+    String description = parts[2];
+    String vendor = parts[3];
+    BigDecimal amount = new BigDecimal(parts[4]);
+
+    Transaction transaction = new Transaction(
+            date, time, description, vendor, amount);
+
+    transactions.add(transaction);
+
+} catch (Exception e) {
+    System.out.println("Skipping invalid transaction.");
+}
+```
+
+**How It Works:**
+
+- The `try` block attempts to convert CSV data into the correct Java data types.
+- `LocalDate.parse()` and `LocalTime.parse()` convert the date and time.
+- `new BigDecimal(parts[4])` converts the amount into a monetary value.
+- The `Transaction` constructor creates a new transaction object.
+- `transactions.add(transaction)` stores the object in the ArrayList.
+- If the data is invalid, the `catch` block handles the exception and allows the program to continue loading other transactions.
+
+**Why I Chose This Code:**
+
+I chose this section because it demonstrates how exception handling makes my application more reliable.
+
+If a CSV record contains an invalid date, time, or amount, ClearLedger skips that transaction instead of stopping the entire application.
+
+This helped me understand how file handling, exception handling, constructors, and ArrayLists work together in Java.
+
+
+
 
 Screenshots
 

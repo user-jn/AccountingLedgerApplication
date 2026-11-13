@@ -92,17 +92,22 @@
 
                 String formattedAmount;
 
-                if (amount.compareTo(BigDecimal.ZERO) < 0) {
+                if (amount.compareTo(BigDecimal.ZERO) < 0) { // if negative input use abs to add - at the front of $ = -$ format,
+                    formattedAmount = "-$" + amount.abs().setScale(2).toPlainString();
 
+                } else {
+                    formattedAmount = "$" + amount.setScale(2).toPlainString();
                 }
 
+
+
                 return String.format(
-                        "%-12s %-10s %-20s %-15s $%10.2f",
+                        "%-12s %-10s %-20s %-15s %10s",
                         date,
                         time.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         description,
                         vendor,
-                        amount);
+                        formattedAmount);
             }
 
         }

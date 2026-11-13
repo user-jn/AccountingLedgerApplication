@@ -40,7 +40,18 @@ IntelliJ IDEA
 
 Git and GitHub
 
-Project Structure
+File Structure
+
+AccountingLedgerApplication/
+├── src/main/java/com/pluralsight/
+│   ├── Main.java
+│   ├── Transaction.java
+│   ├── TransactionManager.java
+│   ├── LedgerManager.java
+│   └── ReportManager.java
+├── screenshots/
+├── transactions.csv
+└── README.md
 
 Main.java — Controls menus, user input, and application navigation.
 

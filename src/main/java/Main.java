@@ -32,22 +32,20 @@ public class Main {
             choice = scanner.nextLine().trim().toUpperCase();
 
             switch (choice) {
-                case "D":
-                    recordTransaction(false);
+                case "D": recordTransaction(false);
                     break;
-                case "P":
-                    recordTransaction(true);
+
+                case "P": recordTransaction(true);
                     break;
-                case "L":
-                    ledgerScreen();
+
+                case "L": ledgerScreen();
                     break;
-                case "X":
-                    System.out.println("Goodbye!");
+
+                case "X": System.out.println("Goodbye!");
                     break;
+
                 default:
                     System.out.println("Invalid option. Try again.");
-
-
                 }
             } while (!choice.equals("X"));
          }
@@ -89,6 +87,7 @@ public class Main {
     // Require text that is not empty and does not contain CSV's pipe symbol
     public static String askRequired(String question) {
         while (true) {
+
             String answer = ask(question);
 
             if (!answer.isEmpty() && !answer.contains("|")) {
@@ -106,6 +105,7 @@ public class Main {
         while (true) {
 
             String text = ask("Amount (example 25.50): ");
+
             try {
 
                 BigDecimal amount = new BigDecimal(text);
@@ -142,20 +142,16 @@ public class Main {
 
             switch (choice) {
 
-                case "A":
-                    LedgerManager.displayAll(manager);
+                case "A": LedgerManager.displayAll(manager);
                     break;
 
-                case "D":
-                    LedgerManager.displayDeposits(manager);
+                case "D": LedgerManager.displayDeposits(manager);
                     break;
 
-                case "P":
-                    LedgerManager.displayPayments(manager);
+                case "P": LedgerManager.displayPayments(manager);
                     break;
 
-                case "R":
-                    reportsScreen();
+                case "R": reportsScreen();
                     break;
 
                 case "H":
@@ -194,17 +190,14 @@ public class Main {
                 case "4":
                     displayTransactions(
                             reports.dateReport(
-                                    manager.getAllTransactions(),
-                                    choice));
+                                    manager.getAllTransactions(), choice));
                     break;
 
                 case "5":
                     String vendor = ask("Vendor name: ");
 
-                    displayTransactions(
-                            reports.searchVendor(
-                                    manager.getAllTransactions(),
-                                    vendor));
+                    displayTransactions(reports.searchVendor(
+                            manager.getAllTransactions(), vendor));
                     break;
 
                 case "6":

@@ -9,15 +9,13 @@ public class TransactionManager {
 
     // CSV file name and header
     private static final String FILE_NAME = "transactions.csv";
-    private static final String HEADER =
-            "date|time|description|vendor|amount";
+    private static final String HEADER = "date|time|description|vendor|amount";
 
     // List of transactions while the program is running
     private ArrayList<Transaction> transactions = new ArrayList<>();
 
     // METHOD 1: PREPARE CSV FILE
     private boolean prepareFile() {
-
         File file = new File(FILE_NAME);
 
         try {

@@ -86,23 +86,22 @@
             }
 
 
-            public String toDisplayString() {  // Format the transaction for the console
 
-                // formatt change, Currently [ $  -7.99 ], however need [ -$ 7.99]
+            public String toDisplayString() {
 
+                // Format payments and deposits
                 String formattedAmount;
 
-                if (amount.compareTo(BigDecimal.ZERO) < 0) { // if negative input use abs to add - at the front of $ = -$ format,
+                if (amount.compareTo(BigDecimal.ZERO) < 0) {
                     formattedAmount = "-$" + amount.abs().setScale(2).toPlainString();
-
                 } else {
                     formattedAmount = "$" + amount.setScale(2).toPlainString();
                 }
 
-
-
+                // Create aligned columns for console output
                 return String.format(
-                        "%-12s %-10s %-20s %-15s %10s",
+                        Locale.US,
+                        "%-12s %-10s %-26s %-22s %12s",
                         date,
                         time.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         description,
@@ -111,6 +110,8 @@
             }
 
         }
+
+
 
 
 

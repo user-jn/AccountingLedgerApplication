@@ -73,18 +73,20 @@ Interesting Code
 
 Screenshots
 
-Home Menu 
+## Screenshots
 
+### Home Menu
+![Home Menu](screenshots/home-menu.png)
 
-Ledger Menu
+### Ledger Menu
+![Ledger Menu](screenshots/ledger-menu.png)
 
+### Reports Menu
+![Reports Menu](screenshots/reports-menu.png)
 
+### Transaction Example
+![Transaction Example](screenshots/transaction-example.png)
 
-Reports Menu
-
-
-
-Transaction Example
 
 What I Learned
 

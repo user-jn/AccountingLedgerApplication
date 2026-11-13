@@ -93,7 +93,6 @@ Follow the console prompts to record or view transactions.
 The program creates transactions.csv in its working directory if the file does not already exist.
 
 
-Interesting Code — Exception Handling and CSV Validation
 
 
 ### Interesting Code #2 — Exception Handling and CSV Validation

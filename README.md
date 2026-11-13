@@ -95,7 +95,7 @@ The program creates transactions.csv in its working directory if the file does n
 
 
 
-### Interesting Code #2 — Exception Handling and CSV Validation
+### Interesting Code — Exception Handling and CSV Validation
 
 Another important part of my project is how I used `try/catch` inside `TransactionManager.java` to handle invalid data when loading transactions from the CSV file.
 

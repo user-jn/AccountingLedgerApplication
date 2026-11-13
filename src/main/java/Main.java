@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        manager.loadTransactionsFromFile();
+        manager.loadTransactionFromFile();
         homeScreen();
         scanner.close();
     }
@@ -64,27 +64,31 @@ public class Main {
 
     // METHOD: ask for transaction information once for both deposits and payments
     public static void recordTransaction(boolean isPayment) {
+        String type = isPayment ? "PAYMENT" : "DEPOSIT";
+        System.out.println("\n========== " + type + " ==========");
 
         String description = askRequired("Description: ");
         String vendor = askRequired("Vendor: ");
         BigDecimal amount = askPositiveAmount();
 
-        // Make payment amounts negative
+        // Payments are stored as negative amounts.
         if (isPayment) {
             amount = amount.negate();
         }
 
+
         // Save transaction through TransactionManager
         if (manager.addTransaction(description, vendor, amount)) {
-            System.out.println("Transaction saved successfully!");
+            System.out.println(type + " saved successfully.");
+        } else {
+            System.out.println("Could not save transaction.");
         }
     }
 
-    // Keep asking until valid text is entered
+
+    // Require text that is not empty and does not contain CSV's pipe symbol
     public static String askRequired(String question) {
-
         while (true) {
-
             String answer = ask(question);
 
             if (!answer.isEmpty() && !answer.contains("|")) {
@@ -102,7 +106,6 @@ public class Main {
         while (true) {
 
             String text = ask("Amount (example 25.50): ");
-
             try {
 
                 BigDecimal amount = new BigDecimal(text);
@@ -140,18 +143,15 @@ public class Main {
             switch (choice) {
 
                 case "A":
-                    displayTransactions(
-                            manager.getAllTransactions());
+                    LedgerManager.displayAll(manager);
                     break;
 
                 case "D":
-                    displayTransactions(
-                            manager.getDeposits());
+                    LedgerManager.displayDeposits(manager);
                     break;
 
                 case "P":
-                    displayTransactions(
-                            manager.getPayments());
+                    LedgerManager.displayPayments(manager);
                     break;
 
                 case "R":
@@ -368,5 +368,21 @@ public class Main {
                 "Net total: $" +
                         deposits.subtract(payments).setScale(2));
     }
-}
 
+        // adding helper methods - ask the user a question
+        public static String ask(String question) {
+            System.out.print(question);
+            return scanner.nextLine().trim();
+        }
+        // METHOD: Get the user's menu choice
+        public static String getChoice() {
+            return ask("Choose an option: ").toUpperCase();
+
+        }
+            // // METHOD: Display a menu title
+            public static void showTitle (String title){
+                System.out.println("\n========== CLEARLEDGER | "
+                        + title + " ==========");
+            }
+
+        }

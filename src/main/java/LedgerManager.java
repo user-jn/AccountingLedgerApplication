@@ -11,7 +11,7 @@ public class LedgerManager {
         for (Transaction t : manager.getAllTransactions()) {
 
             // Calls our overridden toString() method
-            System.out.println(t);
+            System.out.println(t.toDisplayString());
         }
     }
 
@@ -20,7 +20,7 @@ public class LedgerManager {
 
         // Loop through positive transactions
         for (Transaction t : manager.getDeposits()) {
-            System.out.println(t);
+            System.out.println(t.toDisplayString());
         }
 
     }
@@ -29,7 +29,7 @@ public class LedgerManager {
     public static void displayPayments(TransactionManager manager) {
         // Loop through negative transactions
         for (Transaction t : manager.getPayments()) {
-            System.out.println(t);
+            System.out.println(t.toDisplayString());
 
         }
     }

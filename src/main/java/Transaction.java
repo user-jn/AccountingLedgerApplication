@@ -5,8 +5,8 @@
     import java.util.Locale;
     import java.math.BigDecimal;
 
-        public class Transaction {
-            // OBJECT HOLDS ONE ROW OF THE LEDGER
+        public class Transaction {  // OBJECT HOLDS ONE ROW OF THE LEDGER
+
             private LocalDate date;
             private LocalTime time;
             private String description;
@@ -24,8 +24,8 @@
             }
 
             // GETTERS - ALLOWS OTHER CLASSES TO READ OUR FIELDS
-            // RETURNS THE DATE OF THE TRANSACTION
 
+            // RETURNS THE DATE OF THE TRANSACTION
             public LocalDate getDate() {
                 return date;
             }
@@ -68,16 +68,13 @@
                 this.amount = amount;
             }
 
-            // CONVERTING TRANSACTION INTO A CSV FILE
             @Override
-            public String toString() {
-                // FORMATTING THE DATE FOR THE CSV FILE
+            public String toString() {   // FORMATTING THE DATE FOR THE CSV FILE
 
                 String formattedDate = getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 String formattedTime = getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 
                 // RUBRIC FORMAT
-
                 return String.format(
                         Locale.US,
                         "%s|%s|%s|%s|%.2f",
@@ -89,8 +86,15 @@
             }
 
 
-            // Format a transaction into aligned columns for the console
-            public String toDisplayString() {
+            public String toDisplayString() {  // Format the transaction for the console
+
+                // formatt change, Currently [ $  -7.99 ], however need [ -$ 7.99]
+
+                String formattedAmount;
+
+                if (amount.compareTo(BigDecimal.ZERO) < 0) {
+
+                }
 
                 return String.format(
                         "%-12s %-10s %-20s %-15s $%10.2f",

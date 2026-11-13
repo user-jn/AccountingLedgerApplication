@@ -320,7 +320,7 @@ public class Main {
         }
 
         for (Transaction transaction : transactions) {
-            System.out.println(transaction);
+            System.out.println(transaction.toDisplayString());
         }
 
         // Show financial totals after the transactions

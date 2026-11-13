@@ -72,7 +72,6 @@
             @Override
             public String toString() {
                 // FORMATTING THE DATE FOR THE CSV FILE
-                // FORMATTING THE TIME FOR THE CSV FILE
 
                 String formattedDate = getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 String formattedTime = getTime().format(DateTimeFormatter.ofPattern("HH:mm:ss"));
@@ -84,6 +83,19 @@
                         "%s|%s|%s|%s|%.2f",
                         formattedDate,
                         formattedTime,
+                        description,
+                        vendor,
+                        amount);
+            }
+
+
+            // Format a transaction into aligned columns for the console
+            public String toDisplayString() {
+
+                return String.format(
+                        "%-12s %-10s %-20s %-15s $%10.2f",
+                        date,
+                        time.format(DateTimeFormatter.ofPattern("HH:mm:ss")),
                         description,
                         vendor,
                         amount);

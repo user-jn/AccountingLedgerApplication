@@ -42,16 +42,29 @@ Git and GitHub
 
 File Structure
 
+
+## 📁 Project Structure
+
+```text
 AccountingLedgerApplication/
-├── src/main/java/com/pluralsight/
-│   ├── Main.java
-│   ├── Transaction.java
-│   ├── TransactionManager.java
-│   ├── LedgerManager.java
-│   └── ReportManager.java
+├── src/
+│   └── main/
+│       └── java/
+│           └── com/
+│               └── pluralsight/
+│                   ├── Main.java
+│                   ├── Transaction.java
+│                   ├── TransactionManager.java
+│                   ├── LedgerManager.java
+│                   └── ReportManager.java
 ├── screenshots/
+│   ├── home-menu.png
+│   ├── ledger-menu.png
+│   ├── reports-menu.png
+│   └── transaction-example.png
 ├── transactions.csv
 └── README.md
+```
 
 Main.java — Controls menus, user input, and application navigation.
 

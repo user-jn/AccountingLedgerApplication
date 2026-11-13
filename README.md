@@ -145,16 +145,16 @@ This helped me understand how file handling, exception handling, constructors, a
 ## Screenshots
 
 ### Home Menu
-![Home Menu](screenshots/home-menu.png)
+![Home Menu](Screenshots/home-menu.png)
 
 ### Ledger Menu
-![Ledger Menu](screenshots/ledger-menu.png)
+![Ledger Menu](Screenshots/ledger-menu.png)
 
 ### Reports Menu
-![Reports Menu](screenshots/reports-menu.png)
+![Reports Menu](Screenshots/reports-menu.png)
 
 ### Transaction Example
-![Transaction Example](screenshots/transaction-example.png)
+![Transaction Example](Screenshots/transaction-example.PNG)
 
 
 **What I Learned**

@@ -1,12 +1,12 @@
 Accounting Ledger Application 
 
-Project Description
+**Project Description**
 
 A Java console-based accounting application that allows users to record deposits, track payments, view financial transactions, and generate reports.
 
 The application uses object-oriented programming (OOP), ArrayLists, BigDecimal, and CSV file handling to manage financial records.
 
-Features
+**Features**
 
 Add deposits (positive transactions)
 
@@ -32,7 +32,8 @@ Input validation and exception handling
 
 Automatically save transactions to a CSV file
 
-Technologies Used
+
+**Technologies Used**
 
 Java
 
@@ -40,7 +41,7 @@ IntelliJ IDEA
 
 Git and GitHub
 
-File Structure
+
 
 
 ## 📁 Project Structure
@@ -66,19 +67,19 @@ AccountingLedgerApplication/
 └── README.md
 ```
 
-Main.java — Controls menus, user input, and application navigation.
+_Main.java_ — Controls menus, user input, and application navigation.
 
-Transaction.java — Represents a transaction with its date, time, description, vendor, and amount.
+_Transaction.java_ — Represents a transaction with its date, time, description, vendor, and amount.
 
-TransactionManager.java — Creates, saves, loads, sorts, and filters transactions.
+_TransactionManager.java_ — Creates, saves, loads, sorts, and filters transactions.
 
-LedgerManager.java — Displays transaction records.
+_LedgerManager.java_ — Displays transaction records.
 
-ReportManager.java — Generates date reports and performs vendor and custom searches.
+_ReportManager.java_ — Generates date reports and performs vendor and custom searches.
 
-transactions.csv — Stores transaction data between sessions.
+_transactions.csv_ — Stores transaction data between sessions.
 
-How to Run
+**How to Run**
 
 Clone or download the repository.
 
@@ -156,7 +157,7 @@ This helped me understand how file handling, exception handling, constructors, a
 ![Transaction Example](screenshots/transaction-example.png)
 
 
-What I Learned
+**What I Learned**
 
 Through this project, I practiced object-oriented programming, class relationships, constructors, ArrayLists, file handling, exception handling, input validation, and organizing methods across multiple Java classes.
 

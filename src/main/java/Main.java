@@ -14,22 +14,16 @@ public class Main {
     public static void main(String[] args) {
 
         manager.loadTransactionFromFile();
+        DonutTheme.showWelcome(); // added new donut theme
         homeScreen();
         scanner.close();
     }
 
     // HOME MENU: add deposits, payments, or open the ledger
     public static void homeScreen() {
-        String choice;
 
-        do {
-            System.out.println("\n========== CLEARLEDGER ==========");
-            System.out.println("D) Add Deposit");
-            System.out.println("P) Make Payment");
-            System.out.println("L) Ledger");
-            System.out.println("X) Exit");
-            System.out.print("Choose an option: ");
-            choice = scanner.nextLine().trim().toUpperCase();
+        while (true) {
+            DonutTheme.showHomeMenu();
 
             switch (choice) {
                 case "D": recordTransaction(false);
@@ -302,11 +296,14 @@ public class Main {
 
         System.out.println();
 
-        System.out.println(
-                "DATE         TIME      DESCRIPTION            VENDOR                 AMOUNT");
+
+        System.out.printf(
+                "%-12s %-10s %-26s %-22s %12s%n",
+                "DATE", "TIME", "DESCRIPTION", "VENDOR", "AMOUNT");
 
         System.out.println(
-                "-------------------------------------------------------------------------");
+                "----------------------------------------------------------------------------------------");
+
 
         if (transactions.isEmpty()) {
             System.out.println("No matching transactions found.");

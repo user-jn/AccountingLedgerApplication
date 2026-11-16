@@ -35,6 +35,18 @@ public class DonutTheme {
             System.out.print("🍬 What are we baking today? ");
         }
 
+             // Show ledger Menu
+            public static void showLedgerMenu() {
+
+                System.out.println();
+                System.out.println("========== 📒 THE DOUGH BOOK ==========");
+                System.out.println(" [A] 🧾 Full Batch History");
+                System.out.println(" [D] 💰 Sweet Sales");
+                System.out.println(" [P] 💸 Shop Expenses");
+                System.out.println(" [R] 📊 The Dough Report");
+                System.out.println(" [H] 🏠 Back to the Counter");
+                System.out.println("=======================================");
+                System.out.print("🍩 Pick your next batch: ");
 
 
 
@@ -43,13 +55,14 @@ public class DonutTheme {
 
 
 
-        }
+
+
+            }
 
 
 
 
 
-    // Show ledger Menu
     // show reports menu
     // show success
     //show invalid option

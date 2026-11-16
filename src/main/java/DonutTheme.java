@@ -87,7 +87,12 @@ public class DonutTheme {
                     }
 
 
-                             // show goodbye
+                             // show goodbye message
+
+                     public static void showGoodbye() {
+
+                         System.out.println();
+                         System.out.println("====================================");
 
 
 
@@ -99,7 +104,9 @@ public class DonutTheme {
 
 
 
-}
+
+
+                     }
 
 
 

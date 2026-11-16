@@ -82,7 +82,12 @@ public class DonutTheme {
                     public static void showInvalidOption() {
 
                         System.out.println();
+                        System.out.println("🍩 Oops! That donut isn't on the menu.");
+                        System.out.println("Please choose a valid option.");
+                    }
 
+
+                             // show goodbye
 
 
 
@@ -101,7 +106,7 @@ public class DonutTheme {
 
 
 
-    // show goodbye
+
 
 
 }

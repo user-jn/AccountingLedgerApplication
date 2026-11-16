@@ -47,7 +47,17 @@ public class DonutTheme {
                 System.out.println(" [H] 🏠 Back to the Counter");
                 System.out.println("=======================================");
                 System.out.print("🍩 Pick your next batch: ");
+            }
 
+
+                // show reportsMenu
+
+            public static void showReportsMenu() {
+
+                System.out.println();
+                System.out.println("========== 📊 THE DOUGH REPORT ==========");
+
+            }
 
 
 

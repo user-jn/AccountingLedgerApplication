@@ -60,6 +60,20 @@ public class DonutTheme {
                 System.out.println(" [2] 🧁 Last Month's Batch");
                 System.out.println(" [3] 🍯 This Year's Dough");
                 System.out.println(" [4] 🍪 Last Year's Dough");
+                System.out.println(" [5] 🔎 Find a Dough Supplier");
+                System.out.println(" [6] 🔍 Build Your Own Batch");
+
+
+            }
+
+                /
+
+
+
+
+
+
+
 
             }
 
@@ -68,16 +82,6 @@ public class DonutTheme {
 
 
 
-
-
-
-            }
-
-
-
-
-
-    // show reports menu
     // show success
     //show invalid option
     // show goodbye

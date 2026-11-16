@@ -71,7 +71,12 @@ public class DonutTheme {
                      // Display custom message after successfully saving a transaction
                      public static void showSuccess() {
 
-                        System.out.println();
+                         System.out.println();
+                         System.out.println("🍩 Fresh out of the oven!");
+                         System.out.println("✅ Your transaction has been saved.");
+                         System.out.println("====================================");
+                     }
+
 
 
 

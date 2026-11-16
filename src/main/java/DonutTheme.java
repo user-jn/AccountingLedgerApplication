@@ -56,6 +56,10 @@ public class DonutTheme {
 
                 System.out.println();
                 System.out.println("========== 📊 THE DOUGH REPORT ==========");
+                System.out.println(" [1] 🍩 This Month's Batch");
+                System.out.println(" [2] 🧁 Last Month's Batch");
+                System.out.println(" [3] 🍯 This Year's Dough");
+                System.out.println(" [4] 🍪 Last Year's Dough");
 
             }
 

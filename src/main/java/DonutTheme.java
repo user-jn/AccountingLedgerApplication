@@ -62,6 +62,8 @@ public class DonutTheme {
                 System.out.println(" [4] 🍪 Last Year's Dough");
                 System.out.println(" [5] 🔎 Find a Dough Supplier");
                 System.out.println(" [6] 🔍 Build Your Own Batch");
+                System.out.println("=========================================");
+                System.out.print("🍬 Which report sounds sweet? ");
 
 
             }

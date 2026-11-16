@@ -95,27 +95,18 @@ public class DonutTheme {
                          System.out.println("====================================");
                          System.out.println("     🍩 THANKS A DOZEN! 🍩");
                          System.out.println("       DOUGH & CO.");
-
-
-
-
-
-
-
-
-
-
-
-
-
+                         System.out.println("====================================");
+                         System.out.println("The register is closed.");
+                         System.out.println("Stay sweet and keep making dough!");
                      }
 
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
